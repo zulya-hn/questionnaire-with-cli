@@ -26,8 +26,10 @@
             </span>
           <br>
           <span class="mt-5 mb-3"
-                  :class="correctOrWrong(index, question.correctVariants)"
-                  v-for="(variant, index) in answers[questIndex]">
+                  v-for="(variant, variantNumber) in answers[questIndex]"
+                
+                  :class="correctOrWrong(variantNumber, question.correctVariants)">
+            
                 {{ variant }}
             </span>
         </div>
@@ -45,8 +47,8 @@
         
         },
         methods: {
-            correctOrWrong(userAnswer, correctAnswers) {
-                return correctAnswers.includes(userAnswer) ? 'correct' : 'wrong';
+            correctOrWrong(userVariant, correctVariants) {
+                return correctVariants.includes(userVariant) ? 'correct' : 'wrong';
             }
         }
     };

@@ -39,7 +39,7 @@
                         id: 101,
                         text: 'Какие из этих тегов строчные?',
                         variants: ['a', 'div', 'span', 'img'],
-                        correctVariants: [0, 2, 3],
+                        correctVariants: [0, 2],
                         type: 'checkbox',
                     },
                     {
@@ -82,14 +82,12 @@
                 
             },
             checkGoNext() {
-                this.isGoNext = this.answers.map((questIndex) => {
-                    return questIndex.filter(varNum => varNum !== undefined).length > 0;
+                this.isGoNext = this.answers.map((variants) => {
+                    return variants.length > 0;
                 });
             },
             goNext() {
-                if (this.answers[this.currentQuestion]) {
-                    this.currentQuestion++;
-                }
+                this.currentQuestion++;
             },
         },
         computed: {

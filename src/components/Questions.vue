@@ -10,8 +10,6 @@
       <label class="form-check-label">
         <input class="form-check-input"
                :type="question.type"
-               :value="answers[questIndex]"
-               :name="questIndex"
                @click="chooseAnswer(variant, varNum)"
         >
         
